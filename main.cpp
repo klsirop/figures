@@ -10,25 +10,25 @@ shared_ptr<Figure> CreateFigure(istringstream& is) {
 
 	is >> fig_type;
 	if (fig_type == "circle") {
-		int r = 0;
+		uint r = 0;
 
 		is >> r;
 		fig = make_shared<Circle>(r);
 	} else if (fig_type == "rectangle") {
-		int wid = 0;
-		int hei = 0;
+		uint wid = 0;
+		uint hei = 0;
 
 		is >> wid >> hei;
 		fig = make_shared<Rectangle>(wid, hei);
 	} else if (fig_type == "triangle") {
-		int a = 0;
-		int b = 0;
-		int c = 0;
+		uint a = 0;
+		uint b = 0;
+		uint c = 0;
 
 		is >> a >> b >> c;
 		fig = make_shared<Triangle>(a, b, c);
 	} else if (fig_type == "square") {
-		int side = 0;
+		uint side = 0;
 
 		is >> side;
 		fig = make_shared<Square>(side);
@@ -40,10 +40,10 @@ shared_ptr<Figure> CreateFigure(istringstream& is) {
 }
 
 void PrintFigure(istringstream& is, vector<shared_ptr<Figure>>& figures) {
-	int params;
+	uint params;
 
 	is >> params;
-	if (params >= 0 && static_cast<uint>(params) < figures.size()) {
+	if (params < figures.size()) {
 		figures[params]->Print();
 	} else {
 		throw invalid_argument("Error: you did't add this fugure");

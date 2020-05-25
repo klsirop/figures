@@ -13,12 +13,12 @@ public:
 	}
 
 private:
-	std::string name_;
+	const std::string name_;
 };
 
 class Circle : public Figure {
 public:
-	explicit Circle(int r=0)
+	explicit Circle(uint r=0)
 	: Figure("Circle")
 	, r_(r)
 	{};
@@ -28,12 +28,12 @@ public:
 	};
 
 private:
-	const int r_;
+	const uint r_;
 };
 
 class Triangle : public Figure {
 public:
-	explicit Triangle(int a=0, int b=0, int c=0)
+	explicit Triangle(uint a=0, uint b=0, uint c=0)
 	: Figure("Triangle")
 	, a_(a)
 	, b_(b)
@@ -45,14 +45,14 @@ public:
 	};
 
 private:
-	const int a_;
-	const int b_;
-	const int c_;
+	const uint a_;
+	const uint b_;
+	const uint c_;
 };
 
 class Rectangle : public Figure {
 public:
-	explicit Rectangle(int wid=0, int hei=0)
+	explicit Rectangle(uint wid=0, uint hei=0)
 	: Figure("Rectangle")
 	, wid_(wid)
 	, hei_(hei)
@@ -63,12 +63,12 @@ public:
 	};
 
 private:
-	const int wid_;
-	const int hei_;
+	const uint wid_;
+	const uint hei_;
 };
 
 class Square : public Rectangle {
 public:
-	explicit Square(int side)
+	explicit Square(uint side)
 	: Rectangle(side, side) {};
 };
